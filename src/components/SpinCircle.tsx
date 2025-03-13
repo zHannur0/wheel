@@ -3,29 +3,30 @@
 import React from "react";
 
 const categories = [
-    ["3D прототиптеу 1 деңгей", "3D prototyping level 1", "3D прототипирование 1 уровень"],
-    ["3D прототиптеу 2 деңгей", "3D prototyping level 2", "3D прототипирование 2 уровень"],
+    ["3D прототипирование Level 1", "3D prototyping Level 1", "3D прототиптеу Level 1"],
+    ["3D прототипирование Level 2", "3D prototyping Level 2", "3D прототиптеу Level 2"],
     ["Fischertechnik", "Fischertechnik", "Fischertechnik"],
     ["Roboland-Kazakhstan", "Roboland-Kazakhstan", "Roboland-Kazakhstan"],
-    ["Үлкен саяхат", "Great journey", "Большое путешествие"],
-    ["Кегельринг-квадро х 2", "Keglering Quadro X2", "Кегельринг-квадро х 2"],
-    ["Лабиринт 1 деңгей", "Labyrinth level 1", "Лабиринт 1 уровень"],
-    ["Лабиринт 2 деңгей", "Labyrinth level 2", "Лабиринт 2 уровень"],
-    ["Су роботтарының лабиринті", "Aquatic robot labyrinth", "Лабиринт водных роботов"],
-    ["Басқарылатын квадрокоптерлерді маневрлеу", "Maneuvering of controlled quadcopters", "Маневрирование управляемых квадрокоптеров"],
-    ["Басқарылатын роботтардың шағын футболы", "Football of controlled robots", "Мини-футбол управляемых роботов"],
-    ["Жұптық теннис", "Pair tennis", "Парный теннис"],
-    ["Кедергілер жолағы", "Obstacle course", "Полоса препятствий"],
-    ["Робогеометрия 1 деңгей", "Robogeometry level 1", "Робогеометрия 1 уровень"],
-    ["Робогеометрия 2 деңгей", "Robogeometry level 2", "Робогеометрия 2 уровень"],
-    ["Роботы жинақтау 1 деңгей", "Build a robot level 1", "Собери робота 1 уровень"],
-    ["Роботы жинақтау 2 деңгей", "Build a robot level 2", "Собери робота 2 уровень"],
-    ["Садақ ату", "Archery", "Стрельба из лука"],
-    ["«Робот-құтқарушылар» шығармашылық санаты 1 деңгей", "Creative category 'Rescuer robots' level 1", "Творческая категория 'Роботы-спасатели' 1 уровень"],
-    ["«Робот-құтқарушылар» шығармашылық санаты 2 деңгей", "Creative category 'Rescuer robots' level 2", "Творческая категория 'Роботы-спасатели' 2 уровень"],
-    ["«Робот-құтқарушылар» шығармашылық санаты 3 деңгей", "Creative category 'Rescuer robots' level 3", "Творческая категория 'Роботы-спасатели' 3 уровень"],
-    ["Тенге алу", "Tenge alu", "Тенге алу"]
+    ["Большое путешествие", "Great journey", "Үлкен саяхат"],
+    ["Кегельринг-квадро х 2", "Kegelring Quadro X2", "Кегельринг-квадро х 2"],
+    ["Лабиринт Level 1", "Labyrinth Level 1", "Лабиринт Level 1"],
+    ["Лабиринт Level 2", "Labyrinth Level 2", "Лабиринт Level 2"],
+    ["Лабиринт водных роботов", "Aquatic robot labyrinth", "Су роботтарының лабиринті"],
+    ["Маневрирование управляемых квадрокоптеров", "Manoeuvring of controlled quadcopters", "Басқарылатын квадрокоптерлерді маневрлеу"],
+    ["Мини-футбол управляемых роботов", "Football of controlled robots", "Басқарылатын роботтардың шағын футболы"],
+    ["Парный теннис", "Pair tennis", "Жұптық теннис"],
+    ["Полоса препятствий", "Obstacle course", "Кедергілер жолағы"],
+    ["Робогеометрия Level 1", "Robogeometry Level 1", "Робогеометрия Level 1"],
+    ["Робогеометрия Level 2", "Robogeometry Level 2", "Робогеометрия Level 2"],
+    ["Собери робота Level 1", "Build a robot Level 1", "Роботты жинаңыз Level 1"],
+    ["Собери робота Level 2", "Build a robot Level 2", "Роботты жинаңыз Level 2"],
+    ["Садақ ату", "Sadak aty", "Садақ ату"],
+    ["Творческая категория «Роботы-спасатели» Level 1", "Creative category 'Rescuer robots' Level 1", "«Робот-құтқарушылар» шығармашылық санаты Level 1"],
+    ["Творческая категория «Роботы-спасатели» Level 2", "Creative category 'Rescuer robots' Level 2", "«Робот-құтқарушылар» шығармашылық санаты Level 2"],
+    ["Творческая категория «Роботы-спасатели» Level 3", "Creative category 'Rescuer robots' Level 3", "«Робот-құтқарушылар» шығармашылық санаты Level 3"],
+    ["Теңге алу", "Tenge alu", "Теңге алу"]
 ];
+
 
 const CategoriesTable = () => {
     return (

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import WinnerModal from "@/components/WinnerModal";
 
-const segments = Array.from({ length: 24 }, (_, i) => i + 1);
+const segments = Array.from({ length: 22 }, (_, i) => i + 1);
 const colors = ['#4f92c6', '#84b43d']; // Blue and green colors like in the image
 const segmentSize = 360 / segments.length;
 const wheelSize = 600; // Wheel size
