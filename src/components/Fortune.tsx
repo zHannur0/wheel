@@ -20,36 +20,37 @@ const WheelFortune = () => {
 
     return (
         <div className="flex flex-col items-center">
-            <div className="relative w-[350px] h-[350px]">
+            фывафыва
+            <div className="relative w-[400px] h-[400px] rounded-full">
                 {/* Колесо */}
                 <Wheel
                     mustStartSpinning={mustSpin}
                     prizeNumber={prizeNumber}
                     data={data}
-                    backgroundColors={["#b71c1c"]}
+                    backgroundColors={["#4CAF50", "#2196F3", "#FFC107", "#FF5722", "#9C27B0", "#03A9F4"]}
                     textColors={["#ffffff"]}
                     outerBorderColor="#000"
-                    outerBorderWidth={4}
+                    outerBorderWidth={5}
                     radiusLineColor="#000"
                     radiusLineWidth={2}
-                    fontSize={16}
+                    fontSize={18}
                     onStopSpinning={() => setMustSpin(false)}
                 />
 
                 {/* Логотип в центре */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 z-[1000]">
-                    <Image src={"/roboland_logo.png"} alt="RoboLand Logo" width={100} height={100} />
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150px] h-[150px] z-[1000]">
+                    <Image src={"/roboland_logo.png"} alt="RoboLand Logo" width={150} height={150} className={"w-[150px] h-[150px]"} />
                 </div>
 
                 {/* Указатель справа */}
-                <div className="absolute top-1/2 right-[-10px] transform -translate-y-1/2">
+                <div className="absolute top-1/2 right-[-15px] transform -translate-y-1/2">
                     <div className="w-0 h-0 border-l-[20px] border-l-transparent border-t-[30px] border-t-gray-900 border-r-[20px] border-r-transparent"></div>
                 </div>
             </div>
 
             {/* Кнопка кручения */}
             <button
-                className="mt-4 px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
+                className="mt-6 px-6 py-2 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition"
                 onClick={handleSpinClick}
                 disabled={mustSpin}
             >
