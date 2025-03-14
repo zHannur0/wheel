@@ -37,9 +37,9 @@ const CategoriesTable = () => {
                 <table className="table-auto rounded-lg border-separate border-spacing-0 w-full text-sm md:text-base">
                     <thead className="bg-[#BAFFD4] text-gray-900">
                     <tr>
-                        <th className="border border-gray-500 px-2 py-1 rounded-tl-lg">RoboLand 2025 санаттары</th>
+                        <th className="border border-gray-500 px-2 py-1 rounded-tl-lg">RoboLand 2025 категории</th>
                         <th className="border border-gray-500 px-2 py-1">Categories of the RoboLand 2025</th>
-                        <th className="border border-gray-500 px-2 py-1 rounded-tr-lg">RoboLand 2025 категории</th>
+                        <th className="border border-gray-500 px-2 py-1 rounded-tr-lg">RoboLand 2025 санаттары</th>
                     </tr>
                     </thead>
                     <tbody className="bg-[#BAFFD4]">

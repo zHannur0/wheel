@@ -82,7 +82,7 @@ export default function WheelOfFortune() {
             <div className="relative" style={{ width: wheelSize, height: wheelSize }}>
                 {/* Pointer styled like in the image - positioned on the right side */}
                 <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-4 z-10">
-                    <div className="w-0 h-0 border-t-[15px] border-t-transparent border-b-[15px] border-b-transparent border-r-[30px] border-r-gray-300" />
+                    <div className="w-0 h-0 border-t-[30px] border-t-transparent border-b-[30px] border-b-transparent border-r-[55px] border-r-gray-300" />
                 </div>
 
                 {/* Wheel */}
