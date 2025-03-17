@@ -11,13 +11,14 @@ const centerX = 100;
 const centerY = 100;
 const radius = 90; // Outer circle radius
 const textRadius = 75; // Text radius
+const spinDuration = 8; // Увеличенное время прокрутки в секундах
 
 export default function WheelOfFortune() {
     const [rotation, setRotation] = useState(0);
     const [resultNumber, setResultNumber] = useState<number | null>(null);
     const [isSpinning, setIsSpinning] = useState(false);
     const [mounted, setMounted] = useState(false);
-    const [prev, setPrev] = useState<number>(720);
+    const [prev, setPrev] = useState<number>(7200);
 
     // Fix hydration issues by only rendering on client
     useEffect(() => {
@@ -28,20 +29,23 @@ export default function WheelOfFortune() {
         if (isSpinning) return;
         setIsSpinning(true);
         setResultNumber(null);
-        // Choose a random segment (number from 1 to 24)
+        // Choose a random segment (number from 1 to 22)
         const chosenSegmentIndex = Math.floor(Math.random() * segments.length);
-        const chosenSegment = segments[chosenSegmentIndex -1];
+        const chosenSegment = segments[chosenSegmentIndex-1];
 
         // Calculate the angle at which the chosen sector stops under the pointer
         const targetRotation = 360 - (chosenSegmentIndex * segmentSize) - segmentSize / 2;
         const totalRotation = prev + targetRotation;
-        setPrev(prev+720);
+        setPrev(prev+7200);
+
         // Сброс перед анимацией
         setRotation(totalRotation);
-            setTimeout(() => {
-                setResultNumber(chosenSegment);
-                setIsSpinning(false);
-            }, 3000);
+
+        // Увеличенное время до совпадения с CSS-анимацией
+        setTimeout(() => {
+            setResultNumber(chosenSegment);
+            setIsSpinning(false);
+        }, spinDuration * 1000); // Преобразование секунд в миллисекунды
     };
 
     // Pre-calculate segment paths to ensure consistency between server and client
@@ -91,7 +95,7 @@ export default function WheelOfFortune() {
                     className="w-full h-full"
                     style={{
                         transform: `rotate(${rotation}deg)`,
-                        transition: 'transform 3s cubic-bezier(0.2, 0.8, 0.2, 1)'
+                        transition: `transform ${spinDuration}s cubic-bezier(0.2, 0.8, 0.2, 1)` // Увеличенное время анимации
                     }}
                 >
                     {segments.map((num, index) => {
