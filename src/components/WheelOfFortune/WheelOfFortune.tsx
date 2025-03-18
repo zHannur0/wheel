@@ -4,14 +4,14 @@ import React, { useState, useEffect } from 'react';
 import WinnerModal from "@/components/WinnerModal";
 
 const segments = Array.from({ length: 22 }, (_, i) => i + 1);
-const colors = ['#4f92c6', '#84b43d']; // Blue and green colors like in the image
+const colors = ['#4f92c6', '#84b43d'];
 const segmentSize = 360 / segments.length;
-const wheelSize = 600; // Wheel size
+const wheelSize = 600;
 const centerX = 100;
 const centerY = 100;
-const radius = 90; // Outer circle radius
-const textRadius = 75; // Text radius
-const spinDuration = 8; // Увеличенное время прокрутки в секундах
+const radius = 90;
+const textRadius = 75;
+const spinDuration = 8;
 
 export default function WheelOfFortune() {
     const [rotation, setRotation] = useState(0);
@@ -20,7 +20,6 @@ export default function WheelOfFortune() {
     const [mounted, setMounted] = useState(false);
     const [prev, setPrev] = useState<number>(7200);
 
-    // Fix hydration issues by only rendering on client
     useEffect(() => {
         setMounted(true);
     }, []);
@@ -38,32 +37,26 @@ export default function WheelOfFortune() {
         const totalRotation = prev + targetRotation;
         setPrev(prev+7200);
 
-        // Сброс перед анимацией
         setRotation(totalRotation);
 
-        // Увеличенное время до совпадения с CSS-анимацией
         setTimeout(() => {
             setResultNumber(chosenSegment);
             setIsSpinning(false);
-        }, spinDuration * 1000); // Преобразование секунд в миллисекунды
+        }, spinDuration * 1000);
     };
 
-    // Pre-calculate segment paths to ensure consistency between server and client
     const segmentPaths = segments.map((_, index) => {
         const startAngle = index * segmentSize;
         const endAngle = (index + 1) * segmentSize;
 
-        // Convert angles to radians
         const startRad = (startAngle * Math.PI) / 180;
         const endRad = (endAngle * Math.PI) / 180;
 
-        // Calculate points
         const x1 = centerX + radius * Math.cos(startRad);
         const y1 = centerY + radius * Math.sin(startRad);
         const x2 = centerX + radius * Math.cos(endRad);
         const y2 = centerY + radius * Math.sin(endRad);
 
-        // Calculate text position
         const textMidAngle = ((startAngle + endAngle) / 2) * Math.PI / 180;
         const textX = centerX + textRadius * Math.cos(textMidAngle);
         const textY = centerY + textRadius * Math.sin(textMidAngle);
@@ -77,19 +70,16 @@ export default function WheelOfFortune() {
     });
 
     if (!mounted) {
-        // Return a simple loading state or empty div to prevent hydration errors
         return <div className="flex justify-center items-center h-[600px]">Loading wheel...</div>;
     }
 
     return (
         <div className="flex flex-col items-center mt-10 relative">
             <div className="relative" style={{ width: wheelSize, height: wheelSize }}>
-                {/* Pointer styled like in the image - positioned on the right side */}
                 <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-4 z-10">
                     <div className="w-0 h-0 border-t-[30px] border-t-transparent border-b-[30px] border-b-transparent border-r-[55px] border-r-gray-300" />
                 </div>
 
-                {/* Wheel */}
                 <svg
                     viewBox="0 0 200 200"
                     className="w-full h-full"
@@ -109,7 +99,6 @@ export default function WheelOfFortune() {
                                     stroke="white"
                                     strokeWidth="0.5"
                                 />
-                                {/* White circle background for numbers */}
                                 <circle
                                     cx={segment.textX}
                                     cy={segment.textY}
@@ -131,7 +120,6 @@ export default function WheelOfFortune() {
                         );
                     })}
 
-                    {/* Center circle with RoboLand logo */}
                     <circle cx={centerX} cy={centerY} r="20" fill="white" stroke="#84b43d" strokeWidth="2"/>
                     <image
                         href="/roboland_logo.png"
@@ -140,7 +128,6 @@ export default function WheelOfFortune() {
                         height="60"
                         width="60"
                         onError={(e) => {
-                            // Error handler in case the image doesn't load
                             const svg = e.currentTarget.ownerSVGElement;
                             if (svg) {
                                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
